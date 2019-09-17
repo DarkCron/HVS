@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Characters/CharIcon.gd" type="Script" id=1]
+[ext_resource path="res://Content/Icons/Characters/Portraits/Set1.png" type="Texture" id=2]
+[ext_resource path="res://Content/Icons/Characters/Portraits/Set2.png" type="Texture" id=3]
+[ext_resource path="res://Content/Icons/Characters/Portraits/Set3.png" type="Texture" id=4]
+[ext_resource path="res://Content/Icons/Characters/Portraits/Set4.png" type="Texture" id=5]
+[ext_resource path="res://Content/Icons/Characters/Type/crossed-slashes.png" type="Texture" id=6]
+[ext_resource path="res://Content/Icons/Characters/Type/health-normal.png" type="Texture" id=7]
+[ext_resource path="res://Content/Icons/Characters/Type/shield.png" type="Texture" id=8]
+[ext_resource path="res://Characters/CharacterTraitList.tscn" type="PackedScene" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "IconType",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 150, 150 )
+
+[node name="CharIcon" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BGPanel" type="Panel" parent="."]
+editor/display_folded = true
+show_behind_parent = true
+margin_right = 320.0
+margin_bottom = 320.0
+mouse_filter = 2
+
+[node name="Set1" type="Sprite" parent="BGPanel"]
+visible = false
+position = Vector2( 160, 160 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 6
+
+[node name="Set2" type="Sprite" parent="BGPanel"]
+visible = false
+position = Vector2( 160, 160 )
+texture = ExtResource( 3 )
+vframes = 6
+hframes = 6
+
+[node name="Set3" type="Sprite" parent="BGPanel"]
+visible = false
+position = Vector2( 160, 160 )
+texture = ExtResource( 4 )
+vframes = 8
+hframes = 6
+
+[node name="Set4" type="Sprite" parent="BGPanel"]
+visible = false
+position = Vector2( 160, 160 )
+texture = ExtResource( 5 )
+vframes = 6
+hframes = 6
+region_rect = Rect2( 2.71, 1.35, 500, 500 )
+
+[node name="Icon" type="AnimatedSprite" parent="."]
+position = Vector2( 258.947, 261.052 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+animation = "IconType"
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 160, 160 )
+z_as_relative = false
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+show_behind_parent = true
+shape = SubResource( 2 )
+
+[node name="CharacterTraitList" parent="." instance=ExtResource( 9 )]
+[connection signal="mouse_clicked" from="." to="." method="_on_CharIcon_mouse_clicked"]
+[connection signal="mouse_entered" from="." to="." method="_on_CharIcon_mouse_entered"]
+[connection signal="mouse_left" from="." to="." method="_on_CharIcon_mouse_left"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

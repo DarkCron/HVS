@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Content/Icons/QuestIcons/flying-flag.png" type="Texture" id=1]
+[ext_resource path="res://Content/Icons/QuestIcons/jeweled-chalice.png" type="Texture" id=2]
+[ext_resource path="res://Content/Icons/QuestIcons/recycle.png" type="Texture" id=3]
+[ext_resource path="res://Content/Icons/QuestIcons/skull-crossed-bones.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="QuestIcon" type="Control"]
+margin_right = 260.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 260, 260 )
+mouse_filter = 2
+
+[node name="QuestIconSet" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+centered = false

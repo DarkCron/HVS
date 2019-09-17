@@ -1,0 +1,238 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://BGScene_Sun_Moon.gd" type="Script" id=1]
+[ext_resource path="res://SunMoon.gd" type="Script" id=2]
+[ext_resource path="res://Content/Moon.png" type="Texture" id=3]
+[ext_resource path="res://Content/sun_shiny.png" type="Texture" id=4]
+[ext_resource path="res://sun_shiny.gd" type="Script" id=5]
+[ext_resource path="res://Content/Fonts/Menu_Font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Content/Fonts/Lower_Panel.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Content/13673142972025527706free-game-icons-money-md.png" type="Texture" id=8]
+[ext_resource path="res://Content/village.png" type="Texture" id=9]
+[ext_resource path="res://Content/upgrade.png" type="Texture" id=10]
+[ext_resource path="res://Buildings/Blacksmith.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Buildings/Alchemist.tscn" type="PackedScene" id=12]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -0.650027
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="SunMoon" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1428.31, 878.457 )
+script = ExtResource( 2 )
+total_cycle_time = 6
+
+[node name="Moon" type="Sprite" parent="SunMoon"]
+position = Vector2( 2.90039, 766.496 )
+scale = Vector2( 0.361284, 0.361284 )
+texture = ExtResource( 3 )
+
+[node name="sun_shiny" type="Sprite" parent="SunMoon"]
+position = Vector2( 8.57739, -709.219 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="GameplayOptions" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplayOptions"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 797.0
+margin_bottom = 538.0
+custom_constants/separation = 5
+
+[node name="ManageStockButton" type="Button" parent="GameplayOptions/VBoxContainer"]
+margin_right = 787.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 6 )
+text = "Manage Stock"
+clip_text = true
+
+[node name="QuestOverviewButton" type="Button" parent="GameplayOptions/VBoxContainer"]
+margin_top = 68.0
+margin_right = 787.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 6 )
+text = "Quest Overview"
+clip_text = true
+
+[node name="ManageTownButton" type="Button" parent="GameplayOptions/VBoxContainer"]
+margin_top = 136.0
+margin_right = 787.0
+margin_bottom = 199.0
+custom_fonts/font = ExtResource( 6 )
+text = "Manage Town"
+clip_text = true
+
+[node name="AdventurerOverviewButton" type="Button" parent="GameplayOptions/VBoxContainer"]
+margin_top = 204.0
+margin_right = 787.0
+margin_bottom = 267.0
+custom_fonts/font = ExtResource( 6 )
+text = "Adventurer Overview"
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayOptions"]
+margin_top = 1030.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 100 )
+rect_clip_content = true
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 10
+
+[node name="GoldSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_top = 43.0
+margin_right = 40.0
+margin_bottom = 57.0
+text = "          "
+
+[node name="GoldLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 50.0
+margin_top = 21.0
+margin_right = 175.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "Gold:"
+
+[node name="GoldAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 185.0
+margin_top = 21.0
+margin_right = 278.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.701961, 0.815686, 0.227451, 1 )
+text = "500"
+
+[node name="GoldIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
+margin_left = 288.0
+margin_right = 388.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_clip_content = true
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="TownLevelSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 398.0
+margin_top = 43.0
+margin_right = 526.0
+margin_bottom = 57.0
+text = "                                "
+
+[node name="TownLevelLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 536.0
+margin_top = 21.0
+margin_right = 837.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "Town Level: "
+
+[node name="TownLevelAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 847.0
+margin_top = 21.0
+margin_right = 878.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "1"
+
+[node name="VillageIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
+margin_left = 888.0
+margin_right = 988.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 9 )
+expand = true
+
+[node name="TownEXPSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 998.0
+margin_top = 43.0
+margin_right = 1126.0
+margin_bottom = 57.0
+text = "                                "
+
+[node name="TownEXPLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 1136.0
+margin_top = 21.0
+margin_right = 1658.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "Next Town level EXP: "
+
+[node name="TownEXPAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
+margin_left = 1668.0
+margin_top = 21.0
+margin_right = 1761.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "500"
+
+[node name="VillageIcon2" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
+margin_left = 1771.0
+margin_right = 1871.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 10 )
+expand = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+margin_left = 19.0
+margin_top = 10.0
+margin_right = 1313.0
+margin_bottom = 714.0
+rect_min_size = Vector2( 500, 500 )
+rect_clip_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1287.0
+margin_bottom = 697.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer"]
+margin_right = 1258.0
+margin_bottom = 1348.0
+rect_clip_content = true
+custom_constants/separation = 10
+
+[node name="Blacksmith" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 11 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1258.0
+margin_bottom = 669.0
+
+[node name="TownBuilding" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 12 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 679.0
+margin_right = 1258.0
+margin_bottom = 1348.0

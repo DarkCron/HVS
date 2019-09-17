@@ -1,0 +1,593 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Buildings/Alchemist.gd" type="Script" id=1]
+[ext_resource path="res://Content/Icons/Buildings/crystalize.png" type="Texture" id=2]
+[ext_resource path="res://Content/Fonts/Menu_Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Content/Fonts/Building/Building_Text.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_normal.png" type="Texture" id=5]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_uncommon.png" type="Texture" id=6]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_rare.png" type="Texture" id=7]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_epic.png" type="Texture" id=8]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/winged-emblem.png" type="Texture" id=9]
+[ext_resource path="res://Content/upgrade.png" type="Texture" id=10]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/laurel-crown.png" type="Texture" id=11]
+[ext_resource path="res://Content/Icons/sideswipe.png" type="Texture" id=12]
+[ext_resource path="res://Content/Fonts/Building/Building_BigFont.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Content/Icons/sideswipe_reverse.png" type="Texture" id=14]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Alchemist" type="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1920.0
+margin_top = -1080.0
+margin_right = -662.0
+margin_bottom = -411.0
+rect_min_size = Vector2( 1258, 669 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1258.0
+margin_bottom = 669.0
+color = Color( 0.937255, 1, 0.670588, 1 )
+
+[node name="BuildingIcon" type="Sprite" parent="."]
+position = Vector2( 737.343, 110.652 )
+scale = Vector2( 0.359875, 0.359875 )
+texture = ExtResource( 2 )
+
+[node name="HeaderBox" type="Control" parent="."]
+editor/display_folded = true
+margin_right = 603.0
+margin_bottom = 146.0
+
+[node name="BuildingNameLabel" type="Label" parent="HeaderBox"]
+margin_left = 21.0
+margin_top = 7.0
+margin_right = 370.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Alchemist"
+
+[node name="LevelLabel" type="Label" parent="HeaderBox"]
+margin_left = 24.4867
+margin_top = 66.6582
+margin_right = 164.487
+margin_bottom = 108.658
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level: "
+
+[node name="LevelAmount" type="Label" parent="HeaderBox"]
+margin_left = 141.0
+margin_top = 68.0
+margin_right = 278.0
+margin_bottom = 110.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+
+[node name="DescriptionBox" type="Control" parent="."]
+editor/display_folded = true
+margin_left = 12.136
+margin_top = 118.136
+margin_right = 616.136
+margin_bottom = 304.136
+
+[node name="Label" type="Label" parent="DescriptionBox"]
+margin_left = 6.39484
+margin_top = 15.2213
+margin_right = 829.395
+margin_bottom = 237.221
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A master potion crafter. Provides
+passive upgrades for adventures
+during their travels and produces consumables
+to increase quest success chances."
+
+[node name="LowerProduceBox" type="Control" parent="."]
+editor/display_folded = true
+margin_top = 385.0
+margin_right = 1259.0
+margin_bottom = 670.0
+
+[node name="Produce" type="HBoxContainer" parent="LowerProduceBox"]
+margin_left = 7.42856
+margin_top = 69.2598
+margin_right = 838.429
+margin_bottom = 119.26
+custom_constants/separation = 10
+
+[node name="NormalItem" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="NormalAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 60.0
+margin_top = 4.0
+margin_right = 82.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="UncommonItem" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 92.0
+margin_right = 142.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="UncommonAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 152.0
+margin_top = 4.0
+margin_right = 174.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="RareItem" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 184.0
+margin_right = 234.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="RareAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 244.0
+margin_top = 4.0
+margin_right = 266.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="EpicItem" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 276.0
+margin_right = 326.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="EpicAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 336.0
+margin_top = 4.0
+margin_right = 358.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="ItemSpacing" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 368.0
+margin_top = 18.0
+margin_right = 460.0
+margin_bottom = 32.0
+text = "                       "
+
+[node name="NormalItem2" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 470.0
+margin_right = 520.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
+[node name="SpeedModAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 530.0
+margin_top = 4.0
+margin_right = 585.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="UncommonItem2" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 595.0
+margin_right = 645.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="EXPModAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 655.0
+margin_top = 4.0
+margin_right = 710.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="RareItem2" type="TextureRect" parent="LowerProduceBox/Produce"]
+margin_left = 720.0
+margin_right = 770.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="SuccessModAmount" type="Label" parent="LowerProduceBox/Produce"]
+margin_left = 780.0
+margin_top = 4.0
+margin_right = 835.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="ProduceNew" type="HBoxContainer" parent="LowerProduceBox"]
+editor/display_folded = true
+margin_left = 7.42856
+margin_top = 220.26
+margin_right = 838.429
+margin_bottom = 270.26
+custom_constants/separation = 10
+
+[node name="NormalItem" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="NormalAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 60.0
+margin_top = 4.0
+margin_right = 82.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="UncommonItem" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 92.0
+margin_right = 142.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="UncommonAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 152.0
+margin_top = 4.0
+margin_right = 174.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="RareItem" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 184.0
+margin_right = 234.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="RareAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 244.0
+margin_top = 4.0
+margin_right = 266.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="EpicItem" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 276.0
+margin_right = 326.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="EpicAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 336.0
+margin_top = 4.0
+margin_right = 358.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="ItemSpacing" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 368.0
+margin_top = 18.0
+margin_right = 460.0
+margin_bottom = 32.0
+text = "                       "
+
+[node name="NormalItem2" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 470.0
+margin_right = 520.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
+[node name="SpeedModAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 530.0
+margin_top = 4.0
+margin_right = 585.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="UncommonItem2" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 595.0
+margin_right = 645.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="EXPModAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 655.0
+margin_top = 4.0
+margin_right = 710.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="RareItem2" type="TextureRect" parent="LowerProduceBox/ProduceNew"]
+margin_left = 720.0
+margin_right = 770.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="SuccessModAmount" type="Label" parent="LowerProduceBox/ProduceNew"]
+margin_left = 780.0
+margin_top = 4.0
+margin_right = 835.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0%"
+
+[node name="CurrentProduction" type="Label" parent="LowerProduceBox"]
+margin_left = 18.0
+margin_top = 5.0
+margin_right = 370.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Current Production: "
+
+[node name="NewProduction" type="Label" parent="LowerProduceBox"]
+margin_left = 18.0
+margin_top = 141.0
+margin_right = 370.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "New Production: "
+
+[node name="LegendPanel" type="ColorRect" parent="LowerProduceBox"]
+editor/display_folded = true
+margin_left = 856.0
+margin_top = 22.0
+margin_right = 1227.0
+margin_bottom = 242.0
+color = Color( 0.815686, 1, 0.513726, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LowerProduceBox/LegendPanel"]
+margin_left = 15.0
+margin_top = 49.0
+margin_right = 343.0
+margin_bottom = 207.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LowerProduceBox/LegendPanel/VBoxContainer"]
+margin_right = 328.0
+margin_bottom = 50.0
+
+[node name="NormalItem3" type="TextureRect" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
+[node name="NormalAmount3" type="Label" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_top = 4.0
+margin_right = 320.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Speed modifier"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LowerProduceBox/LegendPanel/VBoxContainer"]
+editor/display_folded = true
+margin_top = 54.0
+margin_right = 328.0
+margin_bottom = 104.0
+
+[node name="NormalItem3" type="TextureRect" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="NormalAmount3" type="Label" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer2"]
+margin_left = 54.0
+margin_top = 4.0
+margin_right = 328.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Extra Town EXP"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="LowerProduceBox/LegendPanel/VBoxContainer"]
+margin_top = 108.0
+margin_right = 328.0
+margin_bottom = 158.0
+
+[node name="NormalItem3" type="TextureRect" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer3"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="NormalAmount3" type="Label" parent="LowerProduceBox/LegendPanel/VBoxContainer/HBoxContainer3"]
+margin_left = 54.0
+margin_top = 4.0
+margin_right = 291.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quest Succes"
+
+[node name="IconLegendLabel" type="Label" parent="LowerProduceBox"]
+margin_left = 863.744
+margin_top = 25.2454
+margin_right = 1215.74
+margin_bottom = 67.2454
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Icon Legend:"
+
+[node name="CheckBox" type="CheckBox" parent="LowerProduceBox"]
+margin_left = 1091.58
+margin_top = 24.2622
+margin_right = 1213.58
+margin_bottom = 74.2622
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+pressed = true
+text = "Show"
+
+[node name="Control" type="Control" parent="."]
+margin_left = 891.0
+margin_top = -53.0
+margin_right = 1210.0
+margin_bottom = 399.0
+
+[node name="RequirementsLabel" type="Label" parent="Control"]
+margin_left = 13.3613
+margin_top = 228.815
+margin_right = 271.361
+margin_bottom = 270.815
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Requirements:"
+
+[node name="TownLevelReqLabel" type="Label" parent="Control"]
+margin_left = 13.3613
+margin_top = 272.815
+margin_right = 271.361
+margin_bottom = 314.815
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Town level: "
+
+[node name="TownLevelReqAmount" type="Label" parent="Control"]
+margin_left = 220.0
+margin_top = 273.0
+margin_right = 271.0
+margin_bottom = 315.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+
+[node name="GoldReqLabel" type="Label" parent="Control"]
+margin_left = 13.3613
+margin_top = 313.815
+margin_right = 271.361
+margin_bottom = 355.815
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Gold:  "
+
+[node name="GoldReqAmount" type="Label" parent="Control"]
+margin_left = 108.0
+margin_top = 314.0
+margin_right = 196.0
+margin_bottom = 356.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9999"
+
+[node name="LevelUpButton" type="Button" parent="Control"]
+margin_left = 14.6702
+margin_top = 364.67
+margin_right = 268.67
+margin_bottom = 446.67
+custom_fonts/font = ExtResource( 4 )
+disabled = true
+text = "Level up"
+
+[node name="LevelControl" type="HBoxContainer" parent="Control"]
+margin_left = -0.113281
+margin_top = 91.2664
+margin_right = 1131.89
+margin_bottom = 609.266
+rect_scale = Vector2( 0.25, 0.25 )
+alignment = 1
+
+[node name="DecreaseLevelButton" type="Button" parent="Control/LevelControl"]
+margin_right = 524.0
+margin_bottom = 518.0
+rect_min_size = Vector2( 50, 50 )
+theme = SubResource( 1 )
+disabled = true
+icon = ExtResource( 12 )
+flat = true
+
+[node name="NewLevelAmount" type="Label" parent="Control/LevelControl"]
+margin_left = 528.0
+margin_top = 119.0
+margin_right = 681.0
+margin_bottom = 399.0
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+
+[node name="IncreaseLevelButton" type="Button" parent="Control/LevelControl"]
+margin_left = 685.0
+margin_right = 1209.0
+margin_bottom = 518.0
+rect_min_size = Vector2( 50, 50 )
+theme = SubResource( 1 )
+icon = ExtResource( 14 )
+flat = true
+[connection signal="pressed" from="LowerProduceBox/CheckBox" to="." method="_on_CheckBox_pressed"]
+[connection signal="pressed" from="Control/LevelUpButton" to="." method="_on_LevelUpButton_pressed"]
+[connection signal="pressed" from="Control/LevelControl/DecreaseLevelButton" to="." method="_on_DecreaseLevelButton_pressed"]
+[connection signal="toggled" from="Control/LevelControl/DecreaseLevelButton" to="." method="_on_DecreaseLevelButton_toggled"]
+[connection signal="pressed" from="Control/LevelControl/IncreaseLevelButton" to="." method="_on_IncreaseLevelButton_pressed"]

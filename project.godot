@@ -1,0 +1,80 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "ActiveQuest",
+"language": "GDScript",
+"path": "res://Quest/Scripts/ActiveQuest.gd"
+}, {
+"base": "Reference",
+"class": "BaseQuest",
+"language": "GDScript",
+"path": "res://Quest/Scripts/BaseQuest.gd"
+}, {
+"base": "Reference",
+"class": "BaseTrait",
+"language": "GDScript",
+"path": "res://Characters/Traits/BaseTrait.gd"
+}, {
+"base": "Reference",
+"class": "CharacterInfo",
+"language": "GDScript",
+"path": "res://Characters/CharInfo/CharacterInfo.gd"
+}, {
+"base": "BaseTrait",
+"class": "SpecificTrait",
+"language": "GDScript",
+"path": "res://Characters/Traits/SpecificTrait.gd"
+}, {
+"base": "Reference",
+"class": "TraitEffect",
+"language": "GDScript",
+"path": "res://Characters/Traits/TraitEffect.gd"
+} ]
+_global_script_class_icons={
+"ActiveQuest": "",
+"BaseQuest": "",
+"BaseTrait": "",
+"CharacterInfo": "",
+"SpecificTrait": "",
+"TraitEffect": ""
+}
+
+[application]
+
+config/name="HeroVillageSimulator"
+run/main_scene="res://BGScene_Sun_Moon.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GlobalTest="*res://Scripts/Globals/GlobalTest.gd"
+Alchemist_data="*res://Scripts/Globals/BuildingDataHolder/Alchemist_data.gd"
+Blacksmith_data="*res://Scripts/Globals/BuildingDataHolder/Blacksmith_data.gd"
+SaveManager="*res://Scripts/SaveData/SaveManager.gd"
+GameInfoHolder="*res://Scripts/GameInfoHolder.gd"
+BuildingLevelInfo_Alchemist="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Alchemist.gd"
+BuildingLevelInfo_Blacksmith="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Blacksmith.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

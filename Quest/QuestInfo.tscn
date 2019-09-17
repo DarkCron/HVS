@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Quest/QuestInfo.gd" type="Script" id=1]
+[ext_resource path="res://Content/UI/quest_page.png" type="Texture" id=2]
+[ext_resource path="res://Quest/QuestSlots.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Quest/PanelContainer.gd" type="Script" id=4]
+[ext_resource path="res://Content/Fonts/Quest Text/Quest_Text.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Content/Fonts/Building/Building_LevelUp.tres" type="DynamicFont" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="QuestInfo" type="Control"]
+margin_right = 711.0
+margin_bottom = 1012.0
+rect_min_size = Vector2( 711, 1012 )
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="quest_page" type="Sprite" parent="."]
+position = Vector2( 363.2, 517.237 )
+scale = Vector2( 2.9738, 2.73318 )
+texture = ExtResource( 2 )
+
+[node name="QuestSlots" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7.79037, 839.338 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 22.0
+margin_top = 208.0
+margin_right = 700.0
+margin_bottom = 730.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+bottom_small_slot = 830.0
+bottom_medium_slot = 730.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+margin_right = 678.0
+margin_bottom = 522.0
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Letter wooded direct two men indeed income sister. Impression up admiration he by partiality is. Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects. Written parties winding oh as in without on started. Residence gentleman yet preserved few convinced. Coming regret simple longer little am sister on. Do danger in to adieus ladies houses oh eldest. Gone pure late gay ham. They sigh were not find are rent. 
+
+An country demesne message it. Bachelor domestic extended doubtful as concerns at. Morning prudent removal an letters by. On could my in order never it. Or excited certain sixteen it to parties colonel. Depending conveying direction has led immediate. Law gate her well bed life feet seen rent. On nature or no except it sussex. 
+
+Those an equal point no years do. Depend warmth fat but her but played. Shy and subjects wondered trifling pleasant. Prudent cordial comfort do no on colonel as assured chicken. Smart mrs day which begin. Snug do sold mr it if such. Terminated uncommonly at at estimating. Man behaviour met moonlight extremity acuteness direction. 
+
+No depending be convinced in unfeeling he. Excellence she unaffected and too sentiments her. Rooms he doors there ye aware in by shall. Education remainder in so cordially. His remainder and own dejection daughters sportsmen. Is easy took he shed to kind. 
+
+Building mr concerns servants in he outlived am breeding. He so lain good miss when sell some at if. Told hand so an rich gave next. How doubt yet again see son smart. While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old. 
+
+Inhabit hearing perhaps on ye do no. It maids decay as there he. Smallest on suitable disposed do although blessing he juvenile in. Society or if excited forbade. Here name off yet she long sold easy whom. Differed oh cheerful procured pleasure securing suitable in. Hold rich on an he oh fine. Chapter ability shyness article welcome be do on service. 
+
+In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner so if up wishes or. 
+
+Possession her thoroughly remarkably terminated man continuing. Removed greater to do ability. You shy shall while but wrote marry. Call why sake has sing pure. Gay six set polite nature worthy. So matter be me we wisdom should basket moment merely. Me burst ample wrong which would mr he could. Visit arise my point timed drawn no. Can friendly laughter goodness man him appetite carriage. Any widen see gay forth alone fruit bed. 
+
+Bringing so sociable felicity supplied mr. September suspicion far him two acuteness perfectly. Covered as an examine so regular of. Ye astonished friendship remarkably no. Window admire matter praise you bed whence. Delivered ye sportsmen zealously arranging frankness estimable as. Nay any article enabled musical shyness yet sixteen yet blushes. Entire its the did figure wonder off. 
+
+Placing assured be if removed it besides on. Far shed each high read are men over day. Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had now those ought set often which. Or snug dull he show more true wish. No at many deny away miss evil. On in so indeed spirit an mother. Amounted old strictly but marianne admitted. People former is remove remain as. 
+
+
+"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.6396
+margin_top = 134.032
+margin_right = 685.64
+margin_bottom = 191.032
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.0352941, 0.0705882, 0.443137, 1 )
+text = "Quest name"
+align = 1
+[connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]
+[connection signal="used_small_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_small_slots"]
