@@ -29,6 +29,7 @@ func _ready():
 			if child is CheckBox:
 				weaponCheckBoxes.append(child)
 				child.connect("pressed", self, "_weaponcheckbox_handler",[child],0)
+				child.pressed = false
 				if item == $ScrollContainer/VBoxContainer/WeaponSelection/NormalWeapon:
 					quest_rewards_selection[child] = "NormalWeapon"
 				elif item == $ScrollContainer/VBoxContainer/WeaponSelection/UncommonWeapon:
@@ -42,6 +43,7 @@ func _ready():
 			if child is CheckBox:
 				armourCheckBoxes.append(child)
 				child.connect("pressed", self, "_armourcheckbox_handler",[child],0)
+				child.pressed = false
 				if item == $ScrollContainer/VBoxContainer/ArmourSelection/NormalArmour:
 					quest_rewards_selection[child] = "NormalArmour"
 				elif item == $ScrollContainer/VBoxContainer/ArmourSelection/UncommonArmour:
@@ -55,6 +57,7 @@ func _ready():
 			if child is CheckBox:
 				potionCheckBoxes.append(child)
 				child.connect("pressed", self, "_potionscheckbox_handler",[child],0)
+				child.pressed = false
 				if item == $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistNormal:
 					quest_rewards_selection[child] = "NormalPotion"
 				elif item == $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistUncommon:

@@ -45,13 +45,14 @@ func unselected_for_party() -> void:
 
 
 func Initialize(character: CharacterInfo):
+	self.character = character
 	CharacterNameLabel.text = character.get_character_name()
 	CharacterLevelAmount.text = String(character.get_character_level())
 	pass
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event  is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		emit_signal("clicked_char_info")
+		emit_signal("clicked_char_info",character)
 
 
 

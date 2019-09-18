@@ -10,10 +10,13 @@ const quest_item_scene = preload("res://Quest/QuestList/QuestItem/QuestItem.tscn
 
 signal clicked_on_quest
 
+func Initialize(list : Array) -> void:
+	process_quest_array(list)
+
+
 func _ready():
 	for item in $VBoxContainer.get_children():
 		item.queue_free()
-	process_quest_array([BaseQuest.new()])
 
 func process_quest_array(list : Array) -> void:
 	for item in list:
