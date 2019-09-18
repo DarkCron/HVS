@@ -1,5 +1,8 @@
 extends Control
 
+export var active_color : Color
+export var inactive_color : Color
+
 onready var CharacterNameLabel: Label = $PanelContainer/NameLabel
 onready var CharacterLevelAmount: Label = $LevelAmount
 onready var name_scroll : ScrollContainer = $PanelContainer
@@ -12,6 +15,7 @@ var previous_scroll : float = 0
 var max_time_scroll := 10
 var time_passed := 0.0
 var scroll_speed := 1
+var is_selected_for_quest : bool = false;
 
 signal clicked_char_info
 
@@ -30,6 +34,14 @@ func _process(delta):
 		
 		if time_passed >= max_time_scroll:
 			bIsSelected = false
+
+
+func selected_for_party() -> void:
+	is_selected_for_quest = true
+
+
+func unselected_for_party() -> void:
+	is_selected_for_quest = false
 
 
 func Initialize(character: CharacterInfo):

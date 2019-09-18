@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quest/Scripts/ActiveQuest.gd"
 }, {
+"base": "BaseItem",
+"class": "BaseArmour",
+"language": "GDScript",
+"path": "res://Scripts/Items/Potion/BasePotion.gd"
+}, {
+"base": "Reference",
+"class": "BaseItem",
+"language": "GDScript",
+"path": "res://Scripts/Items/BaseItem.gd"
+}, {
+"base": "BaseItem",
+"class": "BasePotion",
+"language": "GDScript",
+"path": "res://Scripts/Items/Armour/BaseWeapon.gd"
+}, {
 "base": "Reference",
 "class": "BaseQuest",
 "language": "GDScript",
@@ -23,6 +38,11 @@ _global_script_classes=[ {
 "class": "BaseTrait",
 "language": "GDScript",
 "path": "res://Characters/Traits/BaseTrait.gd"
+}, {
+"base": "BaseItem",
+"class": "BaseWeapon",
+"language": "GDScript",
+"path": "res://Scripts/Items/Weapons/BaseArmour.gd"
 }, {
 "base": "Reference",
 "class": "CharacterInfo",
@@ -41,8 +61,12 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ActiveQuest": "",
+"BaseArmour": "",
+"BaseItem": "",
+"BasePotion": "",
 "BaseQuest": "",
 "BaseTrait": "",
+"BaseWeapon": "",
 "CharacterInfo": "",
 "SpecificTrait": "",
 "TraitEffect": ""

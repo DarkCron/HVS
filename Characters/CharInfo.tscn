@@ -16,6 +16,8 @@ margin_bottom = 365.0
 rect_min_size = Vector2( 1190, 365 )
 mouse_filter = 2
 script = ExtResource( 1 )
+active_color = Color( 1, 1, 1, 1 )
+inactive_color = Color( 0.282353, 0.282353, 0.282353, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1190.0
