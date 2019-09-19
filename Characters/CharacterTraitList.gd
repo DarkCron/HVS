@@ -3,6 +3,8 @@ extends PopupDialog
 onready var trait_container : VBoxContainer  = $ScrollContainer/VBoxContainer
 onready var scroll_container : ScrollContainer = $ScrollContainer
 
+var trait_node = preload("res://Characters/Traits/TraitInfo.tscn")
+
 export var popup_position : Vector2 
 var test : SpecificTrait = SpecificTrait.new()
 
@@ -41,7 +43,7 @@ func Initialize(input: Array) -> void:
 		child.queue_free()
 		
 	for item in input:
-		var tempChild = load("res://Characters/Traits/TraitInfo.tscn").instance()
+		var tempChild = trait_node.instance()
 		trait_container.add_child(tempChild)
 		tempChild.Initialize(item)
 

@@ -17,6 +17,7 @@ func Initialize(list : Array) -> void:
 func _ready():
 	for item in $VBoxContainer.get_children():
 		item.queue_free()
+	Initialize([BaseQuest.new()])
 
 func process_quest_array(list : Array) -> void:
 	for item in list:

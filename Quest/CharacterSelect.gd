@@ -1,5 +1,7 @@
 extends Control
 
+class_name CharacterSelect
+
 onready var CharacterListContainer : ScrollContainer = $ScrollContainer
 onready var CharacterList : VBoxContainer = $ScrollContainer/VBoxContainer
 
@@ -8,7 +10,7 @@ const character_item_scene = preload("res://Characters/CharInfo.tscn")
 export var scroll_speed := 40
 var is_in_node := false
 
-signal clicked_on_character
+signal clicked_on_character(character,charInfo)
 
 
 func _ready():
@@ -31,8 +33,8 @@ func process_characters(list : Array) -> void:
 		
 
 
-func _process_clicked_on_charInfo(character : CharacterInfo) -> void:
-	emit_signal("clicked_on_character",character)
+func _process_clicked_on_charInfo(character : CharacterInfo, charInfo : CharInfo) -> void:
+	emit_signal("clicked_on_character",character , charInfo)
 
 
 func _unhandled_input(event):

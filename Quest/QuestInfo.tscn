@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Quest/QuestInfo.gd" type="Script" id=1]
 [ext_resource path="res://Content/UI/quest_page.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Quest/PanelContainer.gd" type="Script" id=4]
 [ext_resource path="res://Content/Fonts/Quest Text/Quest_Text.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Content/Fonts/Building/Building_LevelUp.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Content/Fonts/Building/Building_Text.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Quest/Button.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -29,16 +31,16 @@ scale = Vector2( 2.7, 2.7 )
 margin_left = 22.0
 margin_top = 208.0
 margin_right = 700.0
-margin_bottom = 730.0
+margin_bottom = 734.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 4 )
-bottom_small_slot = 830.0
-bottom_medium_slot = 730.0
+bottom_small_slot = 734.0
+bottom_medium_slot = 586.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
 margin_right = 678.0
-margin_bottom = 522.0
+margin_bottom = 526.0
 custom_fonts/normal_font = ExtResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Letter wooded direct two men indeed income sister. Impression up admiration he by partiality is. Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects. Written parties winding oh as in without on started. Residence gentleman yet preserved few convinced. Coming regret simple longer little am sister on. Do danger in to adieus ladies houses oh eldest. Gone pure late gay ham. They sigh were not find are rent. 
@@ -73,5 +75,20 @@ custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.0352941, 0.0705882, 0.443137, 1 )
 text = "Quest name"
 align = 1
+
+[node name="Button" type="Button" parent="."]
+margin_left = 9.0
+margin_top = 740.0
+margin_right = 705.0
+margin_bottom = 828.0
+custom_fonts/font = ExtResource( 7 )
+text = "Sign Quest Contract"
+script = ExtResource( 8 )
+medium_pos = Vector2( 9, 620 )
+small_ps = Vector2( 9, 740 )
+[connection signal="clicked_on_icon" from="QuestSlots" to="." method="_on_QuestSlots_clicked_on_icon"]
+[connection signal="used_medium_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]
+[connection signal="used_small_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_small_slots"]
 [connection signal="used_small_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_small_slots"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

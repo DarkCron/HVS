@@ -9,5 +9,5 @@ func _on_QuestSlots_used_medium_slots():
 
 
 func _on_QuestSlots_used_small_slots():
-	self.margin_bottom = bottom_small_slot
+	#self.margin_bottom = bottom_small_slot
 	pass # Replace with function body.

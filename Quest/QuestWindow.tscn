@@ -29,5 +29,6 @@ margin_top = 512.635
 margin_right = 1792.3
 margin_bottom = 1412.64
 rect_scale = Vector2( 0.63, 0.63 )
+[connection signal="clicked_on_char_icon" from="QuestInfo" to="." method="_on_QuestInfo_clicked_on_char_icon"]
 [connection signal="clicked_on_character" from="CharacterSelect" to="." method="_on_CharacterSelect_clicked_on_character"]
 [connection signal="clicked_on_quest" from="QuestList" to="." method="_on_QuestList_clicked_on_quest"]

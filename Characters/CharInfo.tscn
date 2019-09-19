@@ -96,8 +96,6 @@ modulate = Color( 1, 1, 1, 0.486275 )
 position = Vector2( 596.166, 181.143 )
 shape = SubResource( 1 )
 [connection signal="mouse_clicked" from="CharIcon" to="." method="_on_CharIcon_mouse_clicked"]
-[connection signal="mouse_entered" from="CharIcon" to="." method="_on_CharIcon_mouse_entered"]
-[connection signal="mouse_left" from="CharIcon" to="." method="_on_CharIcon_mouse_left"]
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

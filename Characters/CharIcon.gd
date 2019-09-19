@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name CharIcon
+
 onready var traitsPopup : PopupDialog = $CharacterTraitList
 onready var character_available_icon : AnimatedSprite = $CharAvailable
 onready var character_role_icon : AnimatedSprite = $Icon
@@ -20,14 +22,16 @@ var popupTimer : float = 1.0
 var popupTimerElapsedTime : float = 0.0
 var startPopupTimer : bool = false
 
-signal mouse_clicked
+signal mouse_clicked(character)
+signal mouse_clicked_charIcon(charIcon)
+
 signal mouse_entered
 signal mouse_left
 
 
 func Initialize(value: CharacterInfo) -> void:
 	self.character = value
-	pass
+	set_icon_from_icon(character)
 
 
 func added_char_to_quest() -> void:
@@ -127,20 +131,19 @@ func _process(delta):
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouse and event.is_pressed() and event.button_index == BUTTON_LEFT:
-		emit_signal("mouse_clicked")
+		emit_signal("mouse_clicked", character)
+		emit_signal("mouse_clicked_charIcon", self)
 
 
 func _on_Area2D_mouse_entered():
 	emit_signal("mouse_entered")
-	#print(666)
 
 
 func _on_Area2D_mouse_exited():
 	emit_signal("mouse_left")
-	#print(666)
 
 
-func _on_CharIcon_mouse_clicked():
+func _on_CharIcon_mouse_clicked(character : CharacterInfo):
 	pass
 
 
@@ -156,3 +159,16 @@ func ResetPopup():
 	popupTimerElapsedTime = 0.0
 	startPopupTimer = false
 	$CharacterTraitList.hide()
+
+
+func ClearIcon() -> void:
+	Set1.visible = false
+	Set2.visible = false
+	Set3.visible = false
+	Set4.visible = false
+	character_available_icon.visible = false
+	character_role_icon.visible = false
+
+
+func enable_quest_slot_features():
+	character_available_icon.visible = true

@@ -1,5 +1,7 @@
 extends Control
 
+class_name CharInfo
+
 export var active_color : Color
 export var inactive_color : Color
 
@@ -17,7 +19,7 @@ var time_passed := 0.0
 var scroll_speed := 1
 var is_selected_for_quest : bool = false;
 
-signal clicked_char_info
+signal clicked_char_info(characterInfo,charInfo)
 
 func _ready():
 	Initialize(character)
@@ -52,7 +54,7 @@ func Initialize(character: CharacterInfo):
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event  is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-		emit_signal("clicked_char_info",character)
+		emit_signal("clicked_char_info",character,self)
 
 
 
@@ -64,3 +66,15 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	bIsSelected = false
 	name_scroll.scroll_horizontal = 0
+
+
+func _on_CharIcon_mouse_clicked(character : CharacterInfo):
+	emit_signal("clicked_char_info")
+
+
+func select_for_quest() -> void:
+	modulate = inactive_color
+
+
+func unselect_for_quest() -> void:
+	modulate = active_color
