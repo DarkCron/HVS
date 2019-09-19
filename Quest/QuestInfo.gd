@@ -5,6 +5,7 @@ class_name QuestInfo
 onready var questslots_node : QuestSlots = $QuestSlots
 onready var quest_description = $PanelContainer/RichTextLabel
 onready var quest_title = $Label
+onready var error_pop_up = $ErrorPopup
 
 var selected_quest : BaseQuest = null
 
@@ -24,6 +25,8 @@ func _process(delta):
 			temp.set_small_quest_slot()
 		else:
 			temp.set_medium_quest_slot()
+		(error_pop_up as Popup).popup()
+		error_pop_up.Initialize()
 
 
 func Initialize(quest : BaseQuest) -> void:
@@ -70,3 +73,7 @@ func has_valid_quest() -> bool:
 
 func _on_Button_pressed() -> void:
 	emit_signal("pressed_contract_button")
+
+func show_error_popup() -> void:
+	error_pop_up.Initialize()
+	(error_pop_up as Popup).popup()

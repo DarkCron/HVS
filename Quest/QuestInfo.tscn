@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Quest/QuestInfo.gd" type="Script" id=1]
 [ext_resource path="res://Content/UI/quest_page.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Content/Fonts/Building/Building_LevelUp.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Content/Fonts/Building/Building_Text.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Quest/Button.gd" type="Script" id=8]
+[ext_resource path="res://Quest/ErrorPopup.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -28,6 +29,7 @@ position = Vector2( 7.79037, 839.338 )
 scale = Vector2( 2.7, 2.7 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+editor/display_folded = true
 margin_left = 22.0
 margin_top = 208.0
 margin_right = 700.0
@@ -86,6 +88,27 @@ text = "Sign Quest Contract"
 script = ExtResource( 8 )
 medium_pos = Vector2( 9, 620 )
 small_ps = Vector2( 9, 740 )
+
+[node name="ErrorPopup" type="PopupDialog" parent="."]
+margin_left = 329.0
+margin_top = 210.0
+margin_right = 1367.0
+margin_bottom = 484.0
+script = ExtResource( 9 )
+base_color = Color( 1, 1, 1, 1 )
+fade_timer = 4.0
+
+[node name="Label" type="Label" parent="ErrorPopup"]
+margin_left = 29.0
+margin_top = 31.0
+margin_right = 990.0
+margin_bottom = 240.0
+custom_fonts/font = ExtResource( 6 )
+text = "- At least 1 adventurer is needed.
+- All chosen adventurers must be willing to participate."
+align = 1
+valign = 1
+autowrap = true
 [connection signal="clicked_on_icon" from="QuestSlots" to="." method="_on_QuestSlots_clicked_on_icon"]
 [connection signal="used_medium_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]

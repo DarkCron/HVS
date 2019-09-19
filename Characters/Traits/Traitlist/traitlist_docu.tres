@@ -1,0 +1,14 @@
+NAME
+DESCRIPTION
+ID
+*EFFECTS MARKER
+-> possible effects, Chance, EXP, Speed, Cost, Motivation, Item
+EFFECT
+55
+EFFECT_2
+60
+#ALTERNATE EFFECT MARKER
+-> Triggers when someone on the team (or self) has a certain trait, overwrites effects with the same name, as in EFFECT will be overwritten as 30, but EFFECT_2 will stay the same
+EFFECT
+30
+--- STOP, NEXT TRAIT

@@ -64,6 +64,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quest/CharacterSelect.gd"
 }, {
+"base": "PopupDialog",
+"class": "ErrorPupup",
+"language": "GDScript",
+"path": "res://Quest/ErrorPopup.gd"
+}, {
+"base": "Reference",
+"class": "QuestCharLogic",
+"language": "GDScript",
+"path": "res://Gameplay/QuestActivity/QuestCharLogic.gd"
+}, {
 "base": "Control",
 "class": "QuestInfo",
 "language": "GDScript",
@@ -78,11 +88,6 @@ _global_script_classes=[ {
 "class": "SpecificTrait",
 "language": "GDScript",
 "path": "res://Characters/Traits/SpecificTrait.gd"
-}, {
-"base": "Reference",
-"class": "TraitEffect",
-"language": "GDScript",
-"path": "res://Characters/Traits/TraitEffect.gd"
 } ]
 _global_script_class_icons={
 "ActiveQuest": "",
@@ -96,10 +101,11 @@ _global_script_class_icons={
 "CharInfo": "",
 "CharacterInfo": "",
 "CharacterSelect": "",
+"ErrorPupup": "",
+"QuestCharLogic": "",
 "QuestInfo": "",
 "QuestSlots": "",
-"SpecificTrait": "",
-"TraitEffect": ""
+"SpecificTrait": ""
 }
 
 [application]
@@ -117,6 +123,7 @@ SaveManager="*res://Scripts/SaveData/SaveManager.gd"
 GameInfoHolder="*res://Scripts/GameInfoHolder.gd"
 BuildingLevelInfo_Alchemist="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Alchemist.gd"
 BuildingLevelInfo_Blacksmith="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Blacksmith.gd"
+TraitListReader="*res://Characters/Traits/Traitlist/TraitListReader.gd"
 
 [display]
 

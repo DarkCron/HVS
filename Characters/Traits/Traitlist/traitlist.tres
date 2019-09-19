@@ -1,0 +1,41 @@
+Leader
+A born leader joins the group, always ready to help his/her party members. Decreases gold value required for party members to agree to the quest. Having someone with the 'Rebel' trait on the party negates this effect and lowers overall success chances.
+1
+*
+Chance
+5
+Motivation
+10
+#
+Rebel
+Chance
+-2
+Motivation
+0
+---
+Rebel
+A person who believes in his and his team's freedom above all else is on the team. Everyone does what they want during the mission increasing overall experience gained and a higher chance to find items. Clashes with the 'Leader' trait.
+2
+*
+EXP
+5
+Item
+10
+#
+Leader
+Chance
+-2
+EXP
+0
+Item
+0
+---
+Scholar
+Joined by a genius, who uses his knowledge to help the team forward and complete the mission.
+3
+*
+Chance
+5
+Item
+5
+---
