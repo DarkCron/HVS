@@ -14,3 +14,21 @@ var quest_level : int = 1
 
 var quest_type = QUEST_TYPE.EXPLORATION
 var quest_size = QUEST_SIZE.SMALL
+
+var quest_reward_renown = 100
+
+static func test_random_quest(quest : BaseQuest) -> BaseQuest:
+	if randi() % 2 == 0:
+		quest.quest_size = QUEST_SIZE.SMALL
+	else:
+		quest.quest_size = QUEST_SIZE.MEDIUM
+	
+	var random = randi() % 3
+	if random == 0:
+		quest.quest_type = QUEST_TYPE.EXPLORATION
+	elif random == 1:
+		quest.quest_type = QUEST_TYPE.GATHER
+	elif random == 2:
+		quest.quest_type = QUEST_TYPE.EXTERMINATION
+	
+	return quest

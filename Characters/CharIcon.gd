@@ -172,3 +172,11 @@ func ClearIcon() -> void:
 
 func enable_quest_slot_features():
 	character_available_icon.visible = true
+
+
+func set_character_able_to_go_on_quest() -> void:
+	character_available_icon.frame = 1
+
+
+func set_character_unable_to_go_on_quest() -> void:
+	character_available_icon.frame = 0

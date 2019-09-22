@@ -7,6 +7,8 @@ onready var Medium_Slots : Sprite = $medium_quest_slot
 
 var icon_list : Array = []
 
+var characterInfo_to_icon : Dictionary = {}
+
 var small_slot_indices : Dictionary = {}
 var medium_slot_indices : Dictionary = {}
 
@@ -105,6 +107,7 @@ func clear_char_icons() -> void:
 		var icon : CharIcon = item
 		icon.ClearIcon()
 		icon.visible = false
+	characterInfo_to_icon.clear()
 
 
 func has_free_slots() -> bool:
@@ -129,6 +132,7 @@ func add_character(character : CharacterInfo) -> int:
 				charIcon.Initialize(character)
 				charIcon.enable_quest_slot_features()
 				charIcon.visible = true
+				characterInfo_to_icon[character] = charIcon
 				return small_slot_indices[charIcon]
 	elif Medium_Slots.visible:
 		for item in medium_slot_indices.keys():
@@ -137,7 +141,8 @@ func add_character(character : CharacterInfo) -> int:
 				charIcon.Initialize(character)
 				charIcon.enable_quest_slot_features()
 				charIcon.visible = true
-				return small_slot_indices[charIcon]
+				characterInfo_to_icon[character] = charIcon
+				return medium_slot_indices[charIcon]
 	return -1
 
 
@@ -147,8 +152,24 @@ func clear_index_slot_icon(index : int) -> void:
 			if small_slot_indices[item] == index:
 				(item as CharIcon).ClearIcon()
 				(item as CharIcon).visible = false
+				for icon in characterInfo_to_icon.keys():
+					if !characterInfo_to_icon[icon].visible:
+						characterInfo_to_icon.erase(icon)
+						break
 	elif Medium_Slots.visible:
 		for item in medium_slot_indices.keys():
 			if medium_slot_indices[item] == index:
 				(item as CharIcon).ClearIcon()
 				(item as CharIcon).visible = false
+				for icon in characterInfo_to_icon.keys():
+					if !characterInfo_to_icon[icon].visible:
+						characterInfo_to_icon.erase(icon)
+						break
+
+
+func set_character_available(character : CharacterInfo) -> void:
+	(characterInfo_to_icon[character] as CharIcon).set_char_available()
+
+
+func set_character_unavailable(character : CharacterInfo) -> void:
+	(characterInfo_to_icon[character] as CharIcon).set_char_unavailable()

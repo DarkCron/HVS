@@ -1,8 +1,13 @@
 extends Control
 
+class_name QuestItem
+
 onready var title_scroll : ScrollContainer = $ScrollContainer
 onready var quest_title_label : Label = $ScrollContainer/Label
 onready var quest_icon = $ColorRect/QuestIcon
+onready var quest_selection_box = $SelectionRect
+
+export var not_selected_color : Color
 
 var bIsSelected : bool = false;
 var previous_scroll : float = 0
@@ -48,3 +53,13 @@ func _on_Area2D_mouse_exited():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		emit_signal("clicked_on_quest_preview",quest_info)
+
+
+func select_this() -> void:
+	quest_selection_box.visible = true
+	modulate = Color.white
+
+
+func unselect_this() -> void:
+	quest_selection_box.visible = false
+	modulate = not_selected_color

@@ -6,6 +6,8 @@ onready var questslots_node : QuestSlots = $QuestSlots
 onready var quest_description = $PanelContainer/RichTextLabel
 onready var quest_title = $Label
 onready var error_pop_up = $ErrorPopup
+onready var renown_label_amount = $Label3
+onready var quest_percentage = $TextureProgress
 
 var selected_quest : BaseQuest = null
 
@@ -16,10 +18,11 @@ func _ready():
 	questslots_node.set_small_quest_slot()
 	quest_description.text = ""
 	quest_title.text = ""
+	renown_label_amount.text = "0"
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and false:
+	if Input.is_action_just_pressed("ui_accept") and true:
 		var temp = $QuestSlots
 		if int(rand_range(0,2)) == 0 :
 			temp.set_small_quest_slot()
@@ -36,12 +39,15 @@ func Initialize(quest : BaseQuest) -> void:
 	
 	clear_quest_slots()
 	
-	match quest.QUEST_SIZE:
+	match quest.quest_size:
 		BaseQuest.QUEST_SIZE.SMALL:
 			questslots_node.set_small_quest_slot()
 		BaseQuest.QUEST_SIZE.MEDIUM:
 			questslots_node.set_medium_quest_slot()
-	pass
+	
+	renown_label_amount.text = String(quest.quest_reward_renown)
+	quest_percentage.set_quest_chance(quest.quest_base_success)
+
 
 func _on_QuestSlots_clicked_on_icon(index):
 	emit_signal("clicked_on_char_icon",index)
@@ -77,3 +83,11 @@ func _on_Button_pressed() -> void:
 func show_error_popup() -> void:
 	error_pop_up.Initialize()
 	(error_pop_up as Popup).popup()
+
+
+func set_character_availabe(character : CharacterInfo) -> void:
+	questslots_node.set_character_available(character)
+
+
+func set_character_unavailabe(character : CharacterInfo) -> void:
+	questslots_node.set_character_unavailable(character)

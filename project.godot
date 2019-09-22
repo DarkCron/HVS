@@ -14,21 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quest/Scripts/ActiveQuest.gd"
 }, {
-"base": "BaseItem",
-"class": "BaseArmour",
-"language": "GDScript",
-"path": "res://Scripts/Items/Potion/BasePotion.gd"
-}, {
-"base": "Reference",
-"class": "BaseItem",
-"language": "GDScript",
-"path": "res://Scripts/Items/BaseItem.gd"
-}, {
-"base": "BaseItem",
-"class": "BasePotion",
-"language": "GDScript",
-"path": "res://Scripts/Items/Armour/BaseWeapon.gd"
-}, {
 "base": "Reference",
 "class": "BaseQuest",
 "language": "GDScript",
@@ -38,11 +23,6 @@ _global_script_classes=[ {
 "class": "BaseTrait",
 "language": "GDScript",
 "path": "res://Characters/Traits/BaseTrait.gd"
-}, {
-"base": "BaseItem",
-"class": "BaseWeapon",
-"language": "GDScript",
-"path": "res://Scripts/Items/Weapons/BaseArmour.gd"
 }, {
 "base": "Node2D",
 "class": "CharIcon",
@@ -79,6 +59,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quest/QuestInfo.gd"
 }, {
+"base": "Control",
+"class": "QuestItem",
+"language": "GDScript",
+"path": "res://Quest/QuestList/QuestItem/QuestItem.gd"
+}, {
+"base": "Node",
+"class": "QuestRoleLogic",
+"language": "GDScript",
+"path": "res://Gameplay/QuestActivity/QuestRoleLogic.gd"
+}, {
 "base": "Node2D",
 "class": "QuestSlots",
 "language": "GDScript",
@@ -91,12 +81,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ActiveQuest": "",
-"BaseArmour": "",
-"BaseItem": "",
-"BasePotion": "",
 "BaseQuest": "",
 "BaseTrait": "",
-"BaseWeapon": "",
 "CharIcon": "",
 "CharInfo": "",
 "CharacterInfo": "",
@@ -104,6 +90,8 @@ _global_script_class_icons={
 "ErrorPupup": "",
 "QuestCharLogic": "",
 "QuestInfo": "",
+"QuestItem": "",
+"QuestRoleLogic": "",
 "QuestSlots": "",
 "SpecificTrait": ""
 }
@@ -124,6 +112,8 @@ GameInfoHolder="*res://Scripts/GameInfoHolder.gd"
 BuildingLevelInfo_Alchemist="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Alchemist.gd"
 BuildingLevelInfo_Blacksmith="*res://Scripts/Globals/BuildingDataHolder/BuildingLevelInfo_Blacksmith.gd"
 TraitListReader="*res://Characters/Traits/Traitlist/TraitListReader.gd"
+BaseItem="*res://Scripts/Items/BaseItem.gd"
+NameGen="*res://Scripts/NameGen/NameGen.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Quest/QuestInfo.gd" type="Script" id=1]
 [ext_resource path="res://Content/UI/quest_page.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Content/Fonts/Building/Building_Text.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Quest/Button.gd" type="Script" id=8]
 [ext_resource path="res://Quest/ErrorPopup.gd" type="Script" id=9]
+[ext_resource path="res://Content/Icons/ribbon-medal.png" type="Texture" id=10]
+[ext_resource path="res://Quest/QuestChance/QuestChance.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -18,6 +20,12 @@ margin_bottom = 1012.0
 rect_min_size = Vector2( 711, 1012 )
 mouse_filter = 2
 script = ExtResource( 1 )
+
+[node name="quest_page2" type="Sprite" parent="."]
+position = Vector2( 363.2, 517.237 )
+scale = Vector2( 2.9738, 2.73318 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 23.86 )
 
 [node name="quest_page" type="Sprite" parent="."]
 position = Vector2( 363.2, 517.237 )
@@ -86,10 +94,11 @@ margin_bottom = 828.0
 custom_fonts/font = ExtResource( 7 )
 text = "Sign Quest Contract"
 script = ExtResource( 8 )
-medium_pos = Vector2( 9, 620 )
+medium_pos = Vector2( 9, 640 )
 small_ps = Vector2( 9, 740 )
 
 [node name="ErrorPopup" type="PopupDialog" parent="."]
+editor/display_folded = true
 margin_left = 329.0
 margin_top = 210.0
 margin_right = 1367.0
@@ -109,9 +118,44 @@ text = "- At least 1 adventurer is needed.
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 1019.0
+margin_right = 499.0
+margin_bottom = 1061.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quest Reward (on success):"
+
+[node name="Label3" type="Label" parent="."]
+editor/display_folded = true
+margin_left = 553.0
+margin_top = 1022.0
+margin_right = 663.0
+margin_bottom = 1064.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50000"
+
+[node name="ribbon-medal" type="TextureRect" parent="Label3"]
+margin_left = -50.7526
+margin_top = -3.17981
+margin_right = -3.75256
+margin_bottom = 43.8202
+texture = ExtResource( 10 )
+expand = true
+
+[node name="TextureProgress" parent="." instance=ExtResource( 11 )]
+margin_left = 479.322
+margin_top = 102.601
+margin_right = 991.322
+margin_bottom = 614.601
+rect_rotation = -30.6133
+rect_scale = Vector2( 0.3, 0.3 )
 [connection signal="clicked_on_icon" from="QuestSlots" to="." method="_on_QuestSlots_clicked_on_icon"]
-[connection signal="used_medium_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]
-[connection signal="used_small_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_small_slots"]
+[connection signal="used_medium_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_small_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_small_slots"]
+[connection signal="used_small_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_small_slots"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

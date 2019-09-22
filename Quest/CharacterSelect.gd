@@ -17,7 +17,6 @@ func _ready():
 	for item in CharacterList.get_children():
 		var temp : Node = item
 		temp.queue_free()
-	Initialize([CharacterInfo.new()])
 
 
 func Initialize(list : Array) -> void:
@@ -29,6 +28,7 @@ func process_characters(list : Array) -> void:
 		var character : CharacterInfo = item
 		var temp_char_node = character_item_scene.instance()
 		CharacterList.add_child(temp_char_node)
+		temp_char_node.Initialize(item)
 		temp_char_node.connect("clicked_char_info",self,"_process_clicked_on_charInfo")
 		
 

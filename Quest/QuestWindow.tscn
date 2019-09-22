@@ -11,6 +11,8 @@ mouse_filter = 2
 script = ExtResource( 1 )
 
 [node name="QuestInfo" parent="." instance=ExtResource( 2 )]
+margin_top = -16.0
+margin_bottom = 996.0
 
 [node name="CharacterSelect" parent="." instance=ExtResource( 3 )]
 margin_left = 1434.0
@@ -32,3 +34,5 @@ rect_scale = Vector2( 0.63, 0.63 )
 [connection signal="clicked_on_char_icon" from="QuestInfo" to="." method="_on_QuestInfo_clicked_on_char_icon"]
 [connection signal="clicked_on_character" from="CharacterSelect" to="." method="_on_CharacterSelect_clicked_on_character"]
 [connection signal="clicked_on_quest" from="QuestList" to="." method="_on_QuestList_clicked_on_quest"]
+[connection signal="quest_value_changed" from="QuestReward" to="." method="_on_QuestReward_quest_value_changed"]
+[connection signal="selected_items_changed" from="QuestReward" to="." method="_on_QuestReward_selected_items_changed"]
