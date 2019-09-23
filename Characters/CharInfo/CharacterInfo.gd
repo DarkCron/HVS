@@ -10,11 +10,11 @@ var level_to_value : Dictionary = {
 	5 : 2000
 }
 var extra_value_to_chance : Dictionary = {
-	300 : 1,
-	800 : 2,
-	1500 : 3,
-	2000 : 4,
-	2500 : 5
+	100 : 1,
+	300 : 2,
+	600 : 3,
+	1000 : 4,
+	1500 : 5
 }
 
 var character_role : int = CLASS_ROLE.DPS
@@ -71,12 +71,26 @@ func get_character_totalEXP() -> int:
 	return character_total_exp
 
 
-func does_character_accept_value(amount : int) -> bool:
+func get_character_accept_quest_amount() -> int:
 	if character_level > 5:
-		return amount >= level_to_value[5]
+		return level_to_value[5]
 	else:
-		return amount >= level_to_value[character_level]
-	return false
+		return level_to_value[character_level]
+
+
+func does_character_accept_value(amount : int) -> bool:
+	return amount >= get_character_accept_quest_amount()
+
+
+func get_extra_chance_from_value(amount : int) -> int:
+	var leftover_value = amount - get_character_accept_quest_amount()
+	var extra_chance = 0
+	for value in extra_value_to_chance.keys():
+		if leftover_value > value:
+			extra_chance += extra_value_to_chance[value]
+		else:
+			break
+	return extra_chance
 
 
 static func generate_random_char(random_char : CharacterInfo) -> CharacterInfo :

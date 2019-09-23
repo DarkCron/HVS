@@ -1,6 +1,5 @@
 extends Node
 
-class_name QuestRoleLogic
 """
 	Calculates base extra quest chance for team compositions, aka the holy trinity setup:
 	Healer - Tank - DPS
@@ -11,6 +10,26 @@ class_name QuestRoleLogic
 	Expected output:
 		
 """
+
+func process_team_from_character_array(teamData : Array, quest : BaseQuest) -> Dictionary:
+	var team_dict = {
+		CharacterInfo.CLASS_ROLE.DPS : 0,
+		CharacterInfo.CLASS_ROLE.HEALER : 0,
+		CharacterInfo.CLASS_ROLE.TANK : 0
+	}
+	team_dict["Quest"] = quest
+	if quest == null:
+		return {}
+	for character in teamData:
+		match (character as CharacterInfo).character_role:
+			CharacterInfo.CLASS_ROLE.DPS:
+				team_dict[CharacterInfo.CLASS_ROLE.DPS] += 1
+			CharacterInfo.CLASS_ROLE.TANK:
+				team_dict[CharacterInfo.CLASS_ROLE.TANK] += 1
+			CharacterInfo.CLASS_ROLE.HEALER:
+				team_dict[CharacterInfo.CLASS_ROLE.HEALER] += 1
+	return  process_team(team_dict)
+
 
 func process_team(teamData : Dictionary) -> Dictionary:
 	if (teamData["Quest"] as BaseQuest).quest_size == BaseQuest.QUEST_SIZE.SMALL:

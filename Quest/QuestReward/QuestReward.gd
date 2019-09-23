@@ -49,6 +49,13 @@ var selected_rewards_potion : Dictionary = {
 	BaseItem.POTION_QUALITY.EPIC : false
 }
 
+onready var potion_selectionboxes : Dictionary = {
+	BaseItem.POTION_QUALITY.NORMAL : $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistNormal/CheckBox,
+	BaseItem.POTION_QUALITY.UNCOMMON : $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistUncommon/CheckBox,
+	BaseItem.POTION_QUALITY.RARE : $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistRare/CheckBox,
+	BaseItem.POTION_QUALITY.EPIC : $ScrollContainer/VBoxContainer/HBoxContainer/AlchemistEpic/CheckBox
+}
+
 var bInPartyRewardHint := false
 var bInPenaltyHint := false
 var bStopTimer := false
@@ -207,6 +214,15 @@ func Reset():
 		selected_rewards_armour[item] = false
 	for item in selected_rewards_potion:
 		selected_rewards_potion[item] = false
+		
+	for box in potionCheckBoxes:
+		(box as CheckBox).disabled = true
+		(box as CheckBox).modulate = Color.gray * .2
+	
+	for item in BaseItem.POTION_QUALITY:
+		if StockData.current_stock_data[BaseItem.POTION_QUALITY[item]] > 0:
+			(potion_selectionboxes[BaseItem.POTION_QUALITY[item]] as CheckBox).disabled = false
+			(potion_selectionboxes[BaseItem.POTION_QUALITY[item]] as CheckBox).modulate = Color.white
 	
 	process_selected_rewards()
 

@@ -49,11 +49,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quest/ErrorPopup.gd"
 }, {
-"base": "Reference",
-"class": "QuestCharLogic",
-"language": "GDScript",
-"path": "res://Gameplay/QuestActivity/QuestCharLogic.gd"
-}, {
 "base": "Control",
 "class": "QuestInfo",
 "language": "GDScript",
@@ -63,11 +58,6 @@ _global_script_classes=[ {
 "class": "QuestItem",
 "language": "GDScript",
 "path": "res://Quest/QuestList/QuestItem/QuestItem.gd"
-}, {
-"base": "Node",
-"class": "QuestRoleLogic",
-"language": "GDScript",
-"path": "res://Gameplay/QuestActivity/QuestRoleLogic.gd"
 }, {
 "base": "Node2D",
 "class": "QuestSlots",
@@ -88,10 +78,8 @@ _global_script_class_icons={
 "CharacterInfo": "",
 "CharacterSelect": "",
 "ErrorPupup": "",
-"QuestCharLogic": "",
 "QuestInfo": "",
 "QuestItem": "",
-"QuestRoleLogic": "",
 "QuestSlots": "",
 "SpecificTrait": ""
 }
@@ -114,6 +102,8 @@ BuildingLevelInfo_Blacksmith="*res://Scripts/Globals/BuildingDataHolder/Building
 TraitListReader="*res://Characters/Traits/Traitlist/TraitListReader.gd"
 BaseItem="*res://Scripts/Items/BaseItem.gd"
 NameGen="*res://Scripts/NameGen/NameGen.gd"
+QuestRoleLogic="*res://Gameplay/QuestActivity/QuestRoleLogic.gd"
+StockData="*res://Gameplay/StockData/StockData.gd"
 
 [display]
 

@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Gameplay/StockData/AlchemistStockDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_normal.png" type="Texture" id=2]
+[ext_resource path="res://Content/Fonts/Lower_Panel.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_uncommon.png" type="Texture" id=4]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_rare.png" type="Texture" id=5]
+[ext_resource path="res://Content/Icons/Buildings/Alchemist/potion-ball_epic.png" type="Texture" id=6]
+
+[node name="AlchemistStockDisplay" type="Control"]
+margin_right = 164.0
+margin_bottom = 467.0
+rect_min_size = Vector2( 164, 467 )
+script = ExtResource( 1 )
+
+[node name="Stock" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 16
+
+[node name="Normal" type="HBoxContainer" parent="Stock"]
+editor/display_folded = true
+margin_right = 146.0
+margin_bottom = 100.0
+custom_constants/separation = 15
+
+[node name="potion-ball_normal" type="TextureRect" parent="Stock/Normal"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Stock/Normal"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Uncommon" type="HBoxContainer" parent="Stock"]
+editor/display_folded = true
+margin_top = 116.0
+margin_right = 146.0
+margin_bottom = 216.0
+custom_constants/separation = 15
+
+[node name="potion-ball_normal" type="TextureRect" parent="Stock/Uncommon"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Stock/Uncommon"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Rare" type="HBoxContainer" parent="Stock"]
+editor/display_folded = true
+margin_top = 232.0
+margin_right = 146.0
+margin_bottom = 332.0
+custom_constants/separation = 15
+
+[node name="potion-ball_normal" type="TextureRect" parent="Stock/Rare"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Stock/Rare"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Epic" type="HBoxContainer" parent="Stock"]
+editor/display_folded = true
+margin_top = 348.0
+margin_right = 146.0
+margin_bottom = 448.0
+custom_constants/separation = 15
+
+[node name="potion-ball_normal" type="TextureRect" parent="Stock/Epic"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Stock/Epic"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"

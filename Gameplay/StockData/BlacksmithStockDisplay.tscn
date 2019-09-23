@@ -1,0 +1,215 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Gameplay/StockData/BlacksmithStockDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/gladius_normal.png" type="Texture" id=2]
+[ext_resource path="res://Content/Fonts/Lower_Panel.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/gladius_uncommon.png" type="Texture" id=4]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/gladius_rare.png" type="Texture" id=5]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/gladius_epic.png" type="Texture" id=6]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/leather-armor_normal.png" type="Texture" id=7]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/leather-armor_uncommon.png" type="Texture" id=8]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/leather-armor_rare.png" type="Texture" id=9]
+[ext_resource path="res://Content/Icons/Buildings/Blacksmith/leather-armor_epic.png" type="Texture" id=10]
+
+[node name="BlacksmithStockDisplay" type="Control"]
+margin_right = 350.0
+margin_bottom = 467.0
+rect_min_size = Vector2( 350, 467 )
+rect_clip_content = true
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="WeaponContainer" type="VBoxContainer" parent="."]
+margin_right = 174.0
+margin_bottom = 548.0
+mouse_filter = 2
+custom_constants/separation = 16
+
+[node name="Normal" type="HBoxContainer" parent="WeaponContainer"]
+editor/display_folded = true
+margin_right = 174.0
+margin_bottom = 100.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="WeaponContainer/Normal"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="WeaponContainer/Normal"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Uncommon" type="HBoxContainer" parent="WeaponContainer"]
+editor/display_folded = true
+margin_top = 116.0
+margin_right = 174.0
+margin_bottom = 216.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="WeaponContainer/Uncommon"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="WeaponContainer/Uncommon"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Rare" type="HBoxContainer" parent="WeaponContainer"]
+editor/display_folded = true
+margin_top = 232.0
+margin_right = 174.0
+margin_bottom = 332.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="WeaponContainer/Rare"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="WeaponContainer/Rare"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Epic" type="HBoxContainer" parent="WeaponContainer"]
+editor/display_folded = true
+margin_top = 348.0
+margin_right = 174.0
+margin_bottom = 448.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="WeaponContainer/Epic"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="WeaponContainer/Epic"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="ArmourContainer" type="VBoxContainer" parent="."]
+editor/display_folded = true
+margin_left = 180.327
+margin_right = 354.327
+margin_bottom = 548.0
+mouse_filter = 2
+custom_constants/separation = 16
+
+[node name="Normal" type="HBoxContainer" parent="ArmourContainer"]
+editor/display_folded = true
+margin_right = 174.0
+margin_bottom = 100.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="ArmourContainer/Normal"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ArmourContainer/Normal"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Uncommon" type="HBoxContainer" parent="ArmourContainer"]
+editor/display_folded = true
+margin_top = 116.0
+margin_right = 174.0
+margin_bottom = 216.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="ArmourContainer/Uncommon"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ArmourContainer/Uncommon"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Rare" type="HBoxContainer" parent="ArmourContainer"]
+editor/display_folded = true
+margin_top = 232.0
+margin_right = 174.0
+margin_bottom = 332.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="ArmourContainer/Rare"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ArmourContainer/Rare"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="Epic" type="HBoxContainer" parent="ArmourContainer"]
+margin_top = 348.0
+margin_right = 174.0
+margin_bottom = 448.0
+custom_constants/separation = 15
+
+[node name="gladius_normal" type="TextureRect" parent="ArmourContainer/Epic"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ArmourContainer/Epic"]
+margin_left = 115.0
+margin_top = 21.0
+margin_right = 146.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"

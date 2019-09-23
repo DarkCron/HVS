@@ -34,7 +34,8 @@ func _process(delta):
 
 func Initialize(quest : BaseQuest) -> void:
 	quest_title.text = quest.quest_title
-	quest_description.text = quest.quest_description
+	quest_description.text = "Duration: " + String(quest.quest_base_duration) + " days\n\n"
+	quest_description.text += quest.quest_description
 	selected_quest = quest
 	
 	clear_quest_slots()
@@ -91,3 +92,11 @@ func set_character_availabe(character : CharacterInfo) -> void:
 
 func set_character_unavailabe(character : CharacterInfo) -> void:
 	questslots_node.set_character_unavailable(character)
+
+
+func set_quest_success_chance(percentage : int) -> void:
+	if percentage > 100:
+		percentage = 100
+	elif percentage < 0:
+		percentage = 0
+	quest_percentage.set_quest_chance(percentage)

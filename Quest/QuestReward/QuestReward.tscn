@@ -211,14 +211,12 @@ margin_bottom = 78.0
 pressed = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-editor/display_folded = true
 margin_top = 164.0
 margin_right = 296.0
 margin_bottom = 242.0
 custom_constants/separation = 32
 
 [node name="AlchemistNormal" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
-editor/display_folded = true
 margin_right = 50.0
 margin_bottom = 78.0
 
@@ -456,6 +454,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 
 [node name="ScrollContainer3" type="ScrollContainer" parent="."]
+editor/display_folded = true
 margin_left = 651.653
 margin_top = 765.413
 margin_right = 1022.65

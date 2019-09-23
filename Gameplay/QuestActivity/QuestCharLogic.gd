@@ -1,5 +1,3 @@
-class_name QuestCharLogic
-
 """
 Handles the logic between, a:
 	CHARACTER: it's traits

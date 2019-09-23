@@ -37,7 +37,6 @@ position = Vector2( 7.79037, 839.338 )
 scale = Vector2( 2.7, 2.7 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-editor/display_folded = true
 margin_left = 22.0
 margin_top = 208.0
 margin_right = 700.0
@@ -154,8 +153,8 @@ margin_bottom = 614.601
 rect_rotation = -30.6133
 rect_scale = Vector2( 0.3, 0.3 )
 [connection signal="clicked_on_icon" from="QuestSlots" to="." method="_on_QuestSlots_clicked_on_icon"]
-[connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_medium_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_medium_slots"]
-[connection signal="used_small_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_small_slots"]
+[connection signal="used_medium_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_medium_slots"]
 [connection signal="used_small_slots" from="QuestSlots" to="Button" method="_on_QuestSlots_used_small_slots"]
+[connection signal="used_small_slots" from="QuestSlots" to="PanelContainer" method="_on_QuestSlots_used_small_slots"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

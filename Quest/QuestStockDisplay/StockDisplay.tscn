@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Quest/QuestStockDisplay/StockDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Content/Fonts/Building/Building_Text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Gameplay/StockData/BlacksmithStockDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gameplay/StockData/AlchemistStockDisplay.tscn" type="PackedScene" id=4]
+
+[node name="StockDisplay" type="Control"]
+margin_left = 1873.0
+margin_top = -13.0
+margin_right = 2520.0
+margin_bottom = 1114.0
+rect_clip_content = true
+script = ExtResource( 1 )
+collapsed_position = Vector2( 1874, -13 )
+extended_position = Vector2( 1271, -13 )
+
+[node name="OpenCloseButton" type="Button" parent="."]
+margin_left = -5.32349
+margin_top = 440.506
+margin_right = 41.6765
+margin_bottom = 712.506
+custom_fonts/font = ExtResource( 2 )
+text = "<"
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 47.0
+margin_top = -57.0
+margin_right = 814.0
+margin_bottom = 1130.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 56.0
+margin_top = 30.0
+margin_right = 425.0
+margin_bottom = 1074.0
+
+[node name="ItemStock" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 350.0
+margin_bottom = 938.0
+
+[node name="BlacksmithStockDisplay" parent="ScrollContainer/ItemStock" instance=ExtResource( 3 )]
+
+[node name="AlchemistStockDisplay" parent="ScrollContainer/ItemStock" instance=ExtResource( 4 )]
+margin_top = 471.0
+margin_right = 350.0
+margin_bottom = 938.0
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="."]
+margin_left = 226.0
+margin_top = 479.0
+margin_right = 632.0
+margin_bottom = 1066.0
+
+[node name="ResourceStock" type="VBoxContainer" parent="ScrollContainer2"]
+[connection signal="pressed" from="OpenCloseButton" to="." method="_on_OpenCloseButton_pressed"]

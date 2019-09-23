@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Quest/QuestWindow.gd" type="Script" id=1]
 [ext_resource path="res://Quest/QuestInfo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Quest/CharacterSelect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Quest/QuestList/QuestList.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Quest/QuestReward/QuestReward.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Quest/QuestStockDisplay/StockDisplay.tscn" type="PackedScene" id=6]
 
 [node name="QuestWindow" type="Control"]
 mouse_filter = 2
@@ -31,7 +32,10 @@ margin_top = 512.635
 margin_right = 1792.3
 margin_bottom = 1412.64
 rect_scale = Vector2( 0.63, 0.63 )
+
+[node name="StockDisplay" parent="." instance=ExtResource( 6 )]
 [connection signal="clicked_on_char_icon" from="QuestInfo" to="." method="_on_QuestInfo_clicked_on_char_icon"]
+[connection signal="pressed_contract_button" from="QuestInfo" to="." method="_on_QuestInfo_pressed_contract_button"]
 [connection signal="clicked_on_character" from="CharacterSelect" to="." method="_on_CharacterSelect_clicked_on_character"]
 [connection signal="clicked_on_quest" from="QuestList" to="." method="_on_QuestList_clicked_on_quest"]
 [connection signal="quest_value_changed" from="QuestReward" to="." method="_on_QuestReward_quest_value_changed"]

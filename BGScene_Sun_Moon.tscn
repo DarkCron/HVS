@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://BGScene_Sun_Moon.gd" type="Script" id=1]
 [ext_resource path="res://SunMoon.gd" type="Script" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Content/13673142972025527706free-game-icons-money-md.png" type="Texture" id=8]
 [ext_resource path="res://Content/village.png" type="Texture" id=9]
 [ext_resource path="res://Content/upgrade.png" type="Texture" id=10]
-[ext_resource path="res://Buildings/Blacksmith.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Buildings/Alchemist.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Content/Icons/ribbon-medal.png" type="Texture" id=11]
+[ext_resource path="res://Buildings/Blacksmith.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Buildings/Alchemist.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,9 +39,9 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="GameplayOptions" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameplayOptions"]
+editor/display_folded = true
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 797.0
@@ -78,47 +79,53 @@ custom_fonts/font = ExtResource( 6 )
 text = "Adventurer Overview"
 clip_text = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameplayOptions"]
-margin_top = 1030.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+[node name="HBoxContainer" type="VBoxContainer" parent="GameplayOptions"]
+editor/display_folded = true
+margin_left = 14.0
+margin_top = 611.0
+margin_right = 737.0
+margin_bottom = 1077.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 100 )
+rect_min_size = Vector2( 100, 100 )
 rect_clip_content = true
+mouse_filter = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
-custom_constants/separation = 10
+custom_constants/separation = 21
+alignment = 1
 
-[node name="GoldSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_top = 43.0
-margin_right = 40.0
-margin_bottom = 57.0
-text = "          "
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayOptions/HBoxContainer"]
+editor/display_folded = true
+margin_top = 1.0
+margin_right = 747.0
+margin_bottom = 101.0
+custom_constants/separation = 16
+alignment = 1
 
-[node name="GoldLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 50.0
+[node name="GoldLabel" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer"]
+margin_left = 198.0
 margin_top = 21.0
-margin_right = 175.0
+margin_right = 323.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.156863, 0.156863, 0.156863, 1 )
 custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
 text = "Gold:"
 
-[node name="GoldAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 185.0
+[node name="GoldAmount" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer"]
+margin_left = 339.0
 margin_top = 21.0
-margin_right = 278.0
+margin_right = 432.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.701961, 0.815686, 0.227451, 1 )
 text = "500"
 
-[node name="GoldIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
-margin_left = 288.0
-margin_right = 388.0
+[node name="GoldIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer/HBoxContainer"]
+margin_left = 448.0
+margin_right = 548.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 rect_clip_content = true
@@ -126,74 +133,111 @@ texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 
-[node name="TownLevelSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 398.0
-margin_top = 43.0
-margin_right = 526.0
-margin_bottom = 57.0
-text = "                                "
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameplayOptions/HBoxContainer"]
+editor/display_folded = true
+margin_top = 122.0
+margin_right = 747.0
+margin_bottom = 222.0
+custom_constants/separation = 16
+alignment = 1
 
-[node name="TownLevelLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 536.0
+[node name="TownLevelLabel" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer2"]
+margin_left = 141.0
 margin_top = 21.0
-margin_right = 837.0
+margin_right = 442.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
 text = "Town Level: "
 
-[node name="TownLevelAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 847.0
+[node name="TownLevelAmount" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer2"]
+margin_left = 458.0
 margin_top = 21.0
-margin_right = 878.0
+margin_right = 489.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
 text = "1"
 
-[node name="VillageIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
-margin_left = 888.0
-margin_right = 988.0
+[node name="VillageIcon" type="TextureRect" parent="GameplayOptions/HBoxContainer/HBoxContainer2"]
+margin_left = 505.0
+margin_right = 605.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 9 )
 expand = true
 
-[node name="TownEXPSpacing" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 998.0
-margin_top = 43.0
-margin_right = 1126.0
-margin_bottom = 57.0
-text = "                                "
+[node name="HBoxContainer3" type="HBoxContainer" parent="GameplayOptions/HBoxContainer"]
+editor/display_folded = true
+margin_top = 243.0
+margin_right = 747.0
+margin_bottom = 343.0
+custom_constants/separation = 16
+alignment = 1
 
-[node name="TownEXPLabel" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 1136.0
+[node name="TownEXPLabel" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer3"]
 margin_top = 21.0
-margin_right = 1658.0
+margin_right = 522.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
 text = "Next Town level EXP: "
 
-[node name="TownEXPAmount" type="Label" parent="GameplayOptions/HBoxContainer"]
-margin_left = 1668.0
+[node name="TownEXPAmount" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer3"]
+margin_left = 538.0
 margin_top = 21.0
-margin_right = 1761.0
+margin_right = 631.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
 text = "500"
 
-[node name="VillageIcon2" type="TextureRect" parent="GameplayOptions/HBoxContainer"]
-margin_left = 1771.0
-margin_right = 1871.0
+[node name="VillageIcon2" type="TextureRect" parent="GameplayOptions/HBoxContainer/HBoxContainer3"]
+margin_left = 647.0
+margin_right = 747.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 10 )
+expand = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GameplayOptions/HBoxContainer"]
+editor/display_folded = true
+margin_top = 364.0
+margin_right = 747.0
+margin_bottom = 464.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="TownRenown" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer4"]
+margin_left = 79.0
+margin_top = 21.0
+margin_right = 443.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "Town Renown: "
+
+[node name="TownRenownAmount" type="Label" parent="GameplayOptions/HBoxContainer/HBoxContainer4"]
+margin_left = 459.0
+margin_top = 21.0
+margin_right = 552.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.666667, 0.564706, 0.215686, 1 )
+text = "500"
+
+[node name="VillageIcon2" type="TextureRect" parent="GameplayOptions/HBoxContainer/HBoxContainer4"]
+margin_left = 568.0
+margin_right = 668.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -217,7 +261,7 @@ margin_bottom = 1348.0
 rect_clip_content = true
 custom_constants/separation = 10
 
-[node name="Blacksmith" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 11 )]
+[node name="Blacksmith" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 12 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -227,7 +271,7 @@ margin_top = 0.0
 margin_right = 1258.0
 margin_bottom = 669.0
 
-[node name="TownBuilding" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 12 )]
+[node name="TownBuilding" parent="PanelContainer/ScrollContainer/HBoxContainer" instance=ExtResource( 13 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
